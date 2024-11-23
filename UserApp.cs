@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Stok_Uygulaması
 {
-    public class UserApp : IdentityUser
+    public class UserApp
     {
+        public int Id { get; set; }
+        public string UserName { get; set; }
     }
 }

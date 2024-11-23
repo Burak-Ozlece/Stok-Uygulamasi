@@ -1,9 +1,18 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace Stok_Uygulaması
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private readonly DbContext _dbContext;
+        private readonly DbSet<UserApp> _dbSet;
+
+        public Form1(AppDbContext dbContext)
         {
+            _dbContext = dbContext;
+            _dbSet = dbContext.Set<UserApp>();
+
             InitializeComponent();
         }
 
@@ -32,7 +41,8 @@ namespace Stok_Uygulaması
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            var deneme = _dbSet.Where(x => x.UserName.Equals(textBox1.Text)).FirstOrDefault();
+            Console.WriteLine(deneme);
         }
 
         private void Form1_Load(object sender, EventArgs e)

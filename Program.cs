@@ -12,8 +12,6 @@ namespace Stok_Uygulaması
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
             // Configuration Setup
@@ -29,14 +27,11 @@ namespace Stok_Uygulaması
             // Create a service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // Get the required services
+            // Get AppDbContext from DI container
             var dbContext = serviceProvider.GetRequiredService<AppDbContext>();
 
-            // Example: Ensure database is created (optional)
-            dbContext.Database.EnsureCreated();
-
-            // Start the application
-            Application.Run(new Form1());
+            // Pass AppDbContext to Form1
+            Application.Run(new Form1(dbContext));
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
