@@ -35,9 +35,9 @@ namespace Stok_Uygulaması
                     .Build();
 
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                var connectionString = configuration.GetConnectionString("postgre");
+                var connectionString = configuration.GetConnectionString("dbBrowser");
 
-                optionsBuilder.UseNpgsql(connectionString);
+                optionsBuilder.UseSqlite(connectionString);
 
                 return new AppDbContext(optionsBuilder.Options);
             }

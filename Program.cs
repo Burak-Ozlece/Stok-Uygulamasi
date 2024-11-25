@@ -38,15 +38,12 @@ namespace Stok_Uygulaması
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             // Get the connection string from appsettings.json
-            string connection = configuration.GetConnectionString("postgre");
+            string connection = configuration.GetConnectionString("dbBrowser");
 
             // Add DbContext with Npgsql (PostgreSQL)
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseNpgsql(connection, sqlOptions =>
-                {
-                    sqlOptions.MigrationsAssembly("Stok Uygulaması"); // Update with your assembly name
-                });
+                options.UseSqlite(connection); // SQLite için UseSqlite kullanılır
             });
 
             // Register GenericRepository<T> as scoped
