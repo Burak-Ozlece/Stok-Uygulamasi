@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace Stok_Uygulaması
+namespace Stok_Uygulaması.Model
 {
     public class UserApp
     {

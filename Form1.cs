@@ -1,17 +1,18 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Stok_Uygulaması.Model;
 
 namespace Stok_Uygulaması
 {
     public partial class Form1 : Form
     {
-        private readonly DbContext _dbContext;
-        private readonly DbSet<UserApp> _dbSet;
+        readonly GenericRepository<UserApp> _userGeneric;
+        readonly GenericRepository<Product> _productGeneric;
 
-        public Form1(AppDbContext dbContext)
+        public Form1(GenericRepository<UserApp> userGeneric, GenericRepository<Product> productGeneric)
         {
-            _dbContext = dbContext;
-            _dbSet = dbContext.Set<UserApp>();
+            _userGeneric = userGeneric;
+            _productGeneric = productGeneric;
 
             InitializeComponent();
         }
@@ -41,7 +42,7 @@ namespace Stok_Uygulaması
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var deneme = _dbSet.Where(x => x.UserName.Equals(textBox1.Text)).FirstOrDefault();
+            var deneme = _userGeneric.Where(x => x.UserName.Equals(textBox1.Text)).FirstOrDefault();
             Console.WriteLine(deneme);
         }
 

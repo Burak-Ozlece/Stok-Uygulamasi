@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Stok_Uygulaması.Model;
 
 namespace Stok_Uygulaması
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
-        {
-
-        }
+        public AppDbContext(DbContextOptions options) : base(options) { }
         public DbSet<UserApp> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         // Diğer DbSet tanımlamalarını buraya ekleyebilirsiniz.
         protected override void OnModelCreating(ModelBuilder modelBuilder) // EF Core'da ModelBuilder kullanılır

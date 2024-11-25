@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Stok_Uygulaması.Model;
 
 namespace Stok_Uygulaması
 {
@@ -27,11 +28,11 @@ namespace Stok_Uygulaması
             // Create a service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // Get AppDbContext from DI container
-            var dbContext = serviceProvider.GetRequiredService<AppDbContext>();
+            var userRepository = serviceProvider.GetRequiredService<GenericRepository<UserApp>>();
+            var productRepository = serviceProvider.GetRequiredService<GenericRepository<Product>>();
 
-            // Pass AppDbContext to Form1
-            Application.Run(new Form1(dbContext));
+            // Pass repositories to Form1
+            Application.Run(new Form1(userRepository, productRepository));
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -48,7 +49,8 @@ namespace Stok_Uygulaması
                 });
             });
 
-            // Register other services if needed
+            // Register GenericRepository<T> as scoped
+            services.AddScoped(typeof(GenericRepository<>), typeof(GenericRepository<>));
         }
     }
 }
