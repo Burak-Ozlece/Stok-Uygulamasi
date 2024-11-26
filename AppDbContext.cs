@@ -15,7 +15,7 @@ namespace Stok_Uygulaması
     public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
-        public DbSet<UserApp> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Product> Products { get; set; }
 
         // Diğer DbSet tanımlamalarını buraya ekleyebilirsiniz.
@@ -35,9 +35,9 @@ namespace Stok_Uygulaması
                     .Build();
 
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                var connectionString = configuration.GetConnectionString("dbBrowser");
+                var connectionString = configuration.GetConnectionString("postgre");
 
-                optionsBuilder.UseSqlite(connectionString);
+                optionsBuilder.UseNpgsql(connectionString);
 
                 return new AppDbContext(optionsBuilder.Options);
             }
