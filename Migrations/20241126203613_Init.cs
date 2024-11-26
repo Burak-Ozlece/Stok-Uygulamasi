@@ -42,6 +42,11 @@ namespace Stok_Uygulaması.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedDate", "PasswordHash", "Salt", "Status", "UpdatedDate", "UserName" },
+                values: new object[] { 1, new DateTime(2024, 11, 26, 20, 36, 12, 845, DateTimeKind.Utc).AddTicks(3688), "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=", "I2Fmswvjufks8K5YK0+/5g==", 1, null, "admin" });
         }
 
         /// <inheritdoc />

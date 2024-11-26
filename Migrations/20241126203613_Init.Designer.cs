@@ -12,7 +12,7 @@ using Stok_Uygulaması;
 namespace Stok_Uygulaması.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241126190737_Init")]
+    [Migration("20241126203613_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -74,6 +74,17 @@ namespace Stok_Uygulaması.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 11, 26, 20, 36, 12, 845, DateTimeKind.Utc).AddTicks(3688),
+                            PasswordHash = "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=",
+                            Salt = "I2Fmswvjufks8K5YK0+/5g==",
+                            Status = 1,
+                            UserName = "admin"
+                        });
                 });
 #pragma warning restore 612, 618
         }

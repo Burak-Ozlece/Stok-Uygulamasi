@@ -21,6 +21,7 @@ namespace Stok_Uygulaması
         // Diğer DbSet tanımlamalarını buraya ekleyebilirsiniz.
         protected override void OnModelCreating(ModelBuilder modelBuilder) // EF Core'da ModelBuilder kullanılır
         {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
 
