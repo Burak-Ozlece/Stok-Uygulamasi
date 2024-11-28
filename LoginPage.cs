@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Stok_Uygulaması.Model;
+using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -108,18 +109,18 @@ namespace Stok_Uygulaması
                 {
                     // DbContextOptions oluşturma
                     var options = new DbContextOptionsBuilder<AppDbContext>()
-                        .UseNpgsql("postgre") // Bağlantı dizenizi burada belirtin
+                        .UseNpgsql("Username=postgres;Password=Password1;Host=localhost;Port=5432;Database=StokeApp;Pooling=true;") // Bağlantı dizenizi burada belirtin
                         .Options;
-                    using (var context = new AppDbContext(options))
-                    {
-                        var userRepository = new GenericRepository<Users>(context);
-                        var productRepository = new GenericRepository<Product>(context);
+                    var context = new AppDbContext(options);
+                   
+                    var userRepository = new GenericRepository<Users>(context);
+                    var productRepository = new GenericRepository<Product>(context);
 
-                        AdminPage adminPage = new(userRepository, productRepository);
+                    AdminPage adminPage = new(userRepository, productRepository);
 
-                        adminPage.Show();
-                        this.Hide();
-                    }
+                    adminPage.Show();
+                    this.Hide();
+                    
 
                 }
                 else
