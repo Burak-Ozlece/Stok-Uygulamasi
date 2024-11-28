@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,28 +17,49 @@ namespace Stok_Uygulaması
 
         readonly GenericRepository<Users> _userGeneric;
         readonly GenericRepository<Product> _productGeneric;
+        readonly UnitOfWork _unitOfWork;
 
-        public AdminPage(GenericRepository<Users> userGeneric, GenericRepository<Product> productGeneric)
+        public AdminPage(GenericRepository<Users> userGeneric, GenericRepository<Product> productGeneric, UnitOfWork unitOfWork)
         {
             _userGeneric = userGeneric;
             _productGeneric = productGeneric;
+            
 
-
-            InitializeComponent();  
+            InitializeComponent();
+            _unitOfWork = unitOfWork;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string şifre1 = textBox3.Text;
+            string şifre2 = textBox4.Text;
 
             // eski şifre ve yeni şifreler boş olmama durumu
-            if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text))
+            if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(şifre1) || string.IsNullOrEmpty(şifre2))
             {
                 label5.Text = "Eksik veya hatalı bilgi girdiniz";
+                return;
             }
             else
             {
                 label5.Text = "";
             }
+
+            
+
+            //yeni şifre uyuşması
+
+            if (şifre1 != şifre2 )
+            {
+                label5.Text = "Yeni parolalar eşleşmiyor";
+                return;
+            }
+            else
+            {
+                label5.Text = "";
+            }
+
+            //eski şifre doğru olup olmaması
 
             string oldpassword = textBox2.Text;
             var usersalt = _userGeneric.Where(x => x.UserName.Equals(textBox1.Text)).Select(x => x.Salt).First();
@@ -46,17 +68,49 @@ namespace Stok_Uygulaması
             if (!_userGeneric.Any(x => x.PasswordHash == hashed))
             {
                 label5.Text = "eski şifreniz hatalıdır";
+                return;
             }
             else
             {
                 label5.Text = "";
+                
             }
+
+            if (!ValidatePassword(şifre2))
+            {
+                label5.Text = "Parolanız Formatı Uygun Değildir";
+                return;
+            }
+            else { label5.Text = ""; }
+
+
+            var salt = LoginPage.GenerateSalt();
+            var hash = LoginPage.HashPasswordWithSalt(şifre2, salt);
+            var admin = _userGeneric.Where(x=> x.UserName == textBox1.Text).First();
+            admin.PasswordHash = hash;
+            admin.Salt = salt;
+            admin.UpdatedDate = DateTime.UtcNow;
+            _userGeneric.Update(admin);
+            _unitOfWork.Commit();
+            
+           
+
+            
+            
+
+
 
         }
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
 
+        }
+        public static bool ValidatePassword(string password)
+        {
+            // Şifre koşullarını kontrol eden regex:
+            var regex = new Regex(@"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^\w\s]).{6,}$");
+            return regex.IsMatch(password);
         }
     }
 }
