@@ -106,10 +106,21 @@ namespace Stok_Uygulaması
             {
                 if (textBox1.Text == "admin")
                 {
-                    AdminPage adminPage = new();
+                    // DbContextOptions oluşturma
+                    var options = new DbContextOptionsBuilder<AppDbContext>()
+                        .UseNpgsql("postgre") // Bağlantı dizenizi burada belirtin
+                        .Options;
+                    using (var context = new AppDbContext(options))
+                    {
+                        var userRepository = new GenericRepository<Users>(context);
+                        var productRepository = new GenericRepository<Product>(context);
 
-                    adminPage.Show();
-                    this.Hide();
+                        AdminPage adminPage = new(userRepository, productRepository);
+
+                        adminPage.Show();
+                        this.Hide();
+                    }
+
                 }
                 else
                 {

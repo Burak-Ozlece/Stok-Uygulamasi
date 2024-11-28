@@ -45,10 +45,9 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(115, 211);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(126, 280);
             button1.Name = "button1";
-            button1.Size = new Size(165, 36);
+            button1.Size = new Size(189, 48);
             button1.TabIndex = 0;
             button1.Text = "Giris";
             button1.UseVisualStyleBackColor = false;
@@ -60,31 +59,28 @@
             // 
             textBox1.BackColor = Color.White;
             textBox1.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic);
-            textBox1.Location = new Point(45, 136);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Location = new Point(51, 181);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Kullanıcı Adı";
-            textBox1.Size = new Size(279, 26);
+            textBox1.Size = new Size(318, 30);
             textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Italic);
-            textBox2.Location = new Point(45, 171);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
+            textBox2.Location = new Point(51, 228);
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '*';
             textBox2.PlaceholderText = "Şifre";
-            textBox2.Size = new Size(279, 26);
+            textBox2.Size = new Size(318, 30);
             textBox2.TabIndex = 4;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(371, 0);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Location = new Point(424, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(616, 471);
+            pictureBox2.Size = new Size(704, 628);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
@@ -93,9 +89,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(100, 51);
+            label3.Location = new Point(114, 68);
             label3.Name = "label3";
-            label3.Size = new Size(178, 55);
+            label3.Size = new Size(222, 69);
             label3.TabIndex = 8;
             label3.Text = "LOGIN";
             // 
@@ -107,7 +103,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(36, 36);
+            label1.Size = new Size(43, 42);
             label1.TabIndex = 9;
             label1.Text = "X";
             label1.Click += label1_Click;
@@ -116,17 +112,17 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Firebrick;
-            label2.Location = new Point(45, 288);
+            label2.Location = new Point(51, 384);
             label2.Name = "label2";
-            label2.Size = new Size(0, 15);
+            label2.Size = new Size(0, 20);
             label2.TabIndex = 10;
             // 
             // LoginPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(986, 470);
+            ClientSize = new Size(1127, 627);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label3);
@@ -136,7 +132,6 @@
             Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Giriş Ekranı";
