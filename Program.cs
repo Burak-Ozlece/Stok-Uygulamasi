@@ -8,47 +8,50 @@ namespace Stok_Uygulaması
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static IServiceProvider? ServiceProvider { get; private set; }
+
         [STAThread]
         static void Main()
         {
+            // Windows Forms uygulama yapılandırması
             ApplicationConfiguration.Initialize();
 
-            // Configuration Setup
+            // Konfigürasyon dosyasını yükle
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            // Service Collection
+            // Servis koleksiyonu oluştur ve bağımlılıkları kaydet
             var serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection, configuration);
 
-            // Create a service provider
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+            // ServiceProvider oluştur
+            ServiceProvider = serviceCollection.BuildServiceProvider();
 
-            var userRepository = serviceProvider.GetRequiredService<GenericRepository<Users>>();
-            var productRepository = serviceProvider.GetRequiredService<GenericRepository<Product>>();
-
-            // Pass repositories to Form1
-            Application.Run(new LoginPage(userRepository, productRepository));
+            // Giriş sayfasını başlat
+            var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
+            Application.Run(loginPage);
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            // Get the connection string from appsettings.json
-            string connection = configuration.GetConnectionString("postgre");
+            // Veritabanı bağlantı dizesini al
+            string connectionString = configuration.GetConnectionString("postgre");
 
-            // Add DbContext with Npgsql (PostgreSQL)
+            // DbContext'i kaydet
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseNpgsql(connection); // SQLite için UseSqlite kullanılır
+                options.UseNpgsql(connectionString);
             });
 
-            // Register GenericRepository<T> as scoped
+            // Generic repository'leri kaydet
             services.AddScoped(typeof(GenericRepository<>), typeof(GenericRepository<>));
+
+            // Formları bağımlılıklarıyla birlikte kaydet
+            services.AddTransient<LoginPage>();
+            services.AddTransient<AdminPage>();
+            services.AddTransient<MainPage>();
         }
     }
 }

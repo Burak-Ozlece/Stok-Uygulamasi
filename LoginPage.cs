@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Stok_Uygulaması.Model;
 using System.Configuration;
 using System.Security.Cryptography;
@@ -107,21 +108,10 @@ namespace Stok_Uygulaması
             {
                 if (textBox1.Text == "admin")
                 {
-                    // DbContextOptions oluşturma
-                    var options = new DbContextOptionsBuilder<AppDbContext>()
-                        .UseNpgsql("Username=postgres;Password=Password1;Host=localhost;Port=5432;Database=StokeApp;Pooling=true;") // Bağlantı dizenizi burada belirtin
-                        .Options;
-                    var context = new AppDbContext(options);
-                   
-                    var userRepository = new GenericRepository<Users>(context);
-                    var productRepository = new GenericRepository<Product>(context);
-
-                    AdminPage adminPage = new(userRepository, productRepository);
+                    AdminPage adminPage = Program.ServiceProvider.GetRequiredService<AdminPage>();
 
                     adminPage.Show();
                     this.Hide();
-                    
-
                 }
                 else
                 {
