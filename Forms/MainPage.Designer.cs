@@ -67,6 +67,7 @@
             pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Name = "pictureBox3";
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox4
             // 
@@ -99,8 +100,8 @@
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(pictureBox2, 1, 0);
             tableLayoutPanel1.Controls.Add(pictureBox6, 2, 1);
-            tableLayoutPanel1.Controls.Add(pictureBox5, 1, 1);
             tableLayoutPanel1.Controls.Add(pictureBox3, 2, 0);
+            tableLayoutPanel1.Controls.Add(pictureBox5, 1, 1);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -110,6 +111,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainPage";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Stok_Uygulaması.Class;
 using Stok_Uygulaması.Model;
 using System;
 using System.Collections.Generic;
@@ -106,13 +107,6 @@ namespace Stok_Uygulaması
             AdminAnasayfa adminAnasayfa = Program.ServiceProvider.GetRequiredService<AdminAnasayfa>();
             adminAnasayfa.Show();
             this.Hide();
-
-
-
-
-
-
-
         }
 
         private void AdminPage_Load(object sender, EventArgs e)

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Stok_Uygulaması.Class;
+using Stok_Uygulaması.Enums;
 using Stok_Uygulaması.Model;
 using System.Configuration;
 using System.Security.Cryptography;
@@ -12,7 +14,7 @@ namespace Stok_Uygulaması
     {
         readonly GenericRepository<Users> _userGeneric;
         readonly GenericRepository<Product> _productGeneric;
-
+        public User User { get; set; }
         public LoginPage(GenericRepository<Users> userGeneric, GenericRepository<Product> productGeneric)
         {
             _userGeneric = userGeneric;
@@ -93,6 +95,12 @@ namespace Stok_Uygulaması
                 return;
             }
 
+            if (!_userGeneric.Any(x => x.UserName.Equals(textBox1.Text) && x.Status == 0))
+            {
+                label2.Text = $"Kullanıcının pasif durumdadır";
+                return;
+            }
+
             string password = textBox2.Text;
 
             var userSalt = _userGeneric.Where(x => x.UserName.Equals(textBox1.Text)).Select(x => x.Salt).First();
@@ -110,8 +118,9 @@ namespace Stok_Uygulaması
 
                 if (textBox1.Text == "admin")
                 {
+                    User.UserName = textBox1.Text;
                     //eğer admin şifresi 1 ise güncelleme sayfasına gönderiyoruz
-                    
+
                     if (password == "1" )
                     {
 

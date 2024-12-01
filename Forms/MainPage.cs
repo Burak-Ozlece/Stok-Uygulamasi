@@ -1,22 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using Stok_Uygulaması.Forms;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Stok_Uygulaması
 {
     public partial class MainPage : Form
     {
         private readonly AppDbContext _context;
-
         public MainPage(AppDbContext context)
         {
             InitializeComponent();
@@ -89,17 +80,17 @@ namespace Stok_Uygulaması
 
                         if (process.ExitCode == 0)
                         {
-                            Console.WriteLine($"Veritabanı yedeği başarıyla alındı: {backupFilePath}");
+                            MessageBox.Show($"Veri tabanı yedeği {backupFilePath} yoluna yedeklenmiştir", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            Console.WriteLine($"Hata oluştu: {error}");
+                            MessageBox.Show($"Hata oluştu: {error}", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Yedekleme sırasında bir hata oluştu: {ex.Message}");
+                    MessageBox.Show($"Hata oluştu: {ex.Message}", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -111,14 +102,16 @@ namespace Stok_Uygulaması
             reportPage.Show();
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
+            UserUpdatePassword passwordChangePage = Program.ServiceProvider.GetRequiredService<UserUpdatePassword>();
 
+            passwordChangePage.Show();
         }
     }
 }

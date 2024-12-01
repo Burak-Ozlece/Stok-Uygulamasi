@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Stok_Uygulaması.Class;
+using Stok_Uygulaması.Forms;
 using Stok_Uygulaması.Model;
 
 namespace Stok_Uygulaması
@@ -31,7 +33,8 @@ namespace Stok_Uygulaması
 
             // Giriş sayfasını başlat
             var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
-            Application.Run(loginPage);
+            var mainPage = ServiceProvider.GetRequiredService<MainPage>();
+            Application.Run(mainPage);
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -54,6 +57,7 @@ namespace Stok_Uygulaması
             services.AddTransient<AdminPage>();
             services.AddTransient<MainPage>();
             services.AddTransient<AdminAnasayfa>();
+            services.AddTransient<UserUpdatePassword>();
         }
     }
 }
