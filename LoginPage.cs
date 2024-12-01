@@ -112,7 +112,7 @@ namespace Stok_Uygulaması
                 {
                     //eğer admin şifresi 1 ise güncelleme sayfasına gönderiyoruz
                     
-                    if (_userGeneric.Any(x=> x.PasswordHash.Equals(hashedPassword)) )
+                    if (password == "1" )
                     {
 
                         AdminPage adminPage = Program.ServiceProvider.GetRequiredService<AdminPage>();

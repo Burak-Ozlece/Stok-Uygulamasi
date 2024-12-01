@@ -92,6 +92,7 @@
             textBox2.Location = new Point(173, 65);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(221, 30);
             textBox2.TabIndex = 4;
             // 
@@ -118,6 +119,7 @@
             textBox3.Location = new Point(173, 103);
             textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
+            textBox3.PasswordChar = '*';
             textBox3.Size = new Size(221, 30);
             textBox3.TabIndex = 7;
             // 
@@ -126,12 +128,14 @@
             textBox4.Location = new Point(173, 141);
             textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
+            textBox4.PasswordChar = '*';
             textBox4.Size = new Size(221, 30);
             textBox4.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = Color.Maroon;
             label5.Location = new Point(535, 144);
             label5.Name = "label5";
             label5.Size = new Size(0, 23);
@@ -151,7 +155,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(459, 131);
+            pictureBox1.Location = new Point(450, 129);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(70, 53);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;

@@ -45,7 +45,7 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(126, 280);
+            button1.Location = new Point(126, 284);
             button1.Name = "button1";
             button1.Size = new Size(189, 48);
             button1.TabIndex = 0;
