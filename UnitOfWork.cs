@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Stok_Uygulaması
 {
-    internal class UnitOfWork
+    public class UnitOfWork
     {
         public readonly DbContext _context;
 

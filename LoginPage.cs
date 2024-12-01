@@ -55,7 +55,7 @@ namespace Stok_Uygulaması
         public static string GenerateSalt()
         {
             byte[] saltBytes = new byte[16];
-            using (var rng = new RNGCryptoServiceProvider())
+            using (RNGCryptoServiceProvider rng = new())
             {
                 rng.GetBytes(saltBytes);
             }
@@ -115,7 +115,7 @@ namespace Stok_Uygulaması
                 }
                 else
                 {
-                    MainPage mainPage = new();
+                    MainPage mainPage = Program.ServiceProvider.GetRequiredService<MainPage>();
 
                     mainPage.Show();
                     this.Hide();
