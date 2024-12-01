@@ -31,8 +31,7 @@ namespace Stok_Uygulaması
 
             // Giriş sayfasını başlat
             var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
-            var mainPage = ServiceProvider.GetRequiredService<MainPage>();
-            Application.Run(mainPage);
+            Application.Run(loginPage);
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
