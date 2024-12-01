@@ -44,6 +44,7 @@ namespace Stok_Uygulaması
             {
                 options.UseNpgsql(connectionString);
             });
+            services.AddScoped<UnitOfWork>();
 
             // Generic repository'leri kaydet
             services.AddScoped(typeof(GenericRepository<>), typeof(GenericRepository<>));
@@ -52,6 +53,7 @@ namespace Stok_Uygulaması
             services.AddTransient<LoginPage>();
             services.AddTransient<AdminPage>();
             services.AddTransient<MainPage>();
+            services.AddTransient<AdminAnasayfa>();
         }
     }
 }

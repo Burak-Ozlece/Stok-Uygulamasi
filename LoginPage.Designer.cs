@@ -45,7 +45,7 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(126, 280);
+            button1.Location = new Point(126, 284);
             button1.Name = "button1";
             button1.Size = new Size(189, 48);
             button1.TabIndex = 0;
@@ -88,10 +88,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI", 36F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
             label3.Location = new Point(114, 68);
             label3.Name = "label3";
-            label3.Size = new Size(222, 69);
+            label3.Size = new Size(222, 81);
             label3.TabIndex = 8;
             label3.Text = "LOGIN";
             // 
