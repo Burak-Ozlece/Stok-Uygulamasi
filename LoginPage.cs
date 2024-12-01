@@ -106,12 +106,27 @@ namespace Stok_Uygulaması
             }
             else
             {
+                
+
                 if (textBox1.Text == "admin")
                 {
-                    AdminPage adminPage = Program.ServiceProvider.GetRequiredService<AdminPage>();
+                    //eğer admin şifresi 1 ise güncelleme sayfasına gönderiyoruz
+                    
+                    if (_userGeneric.Any(x=> x.PasswordHash.Equals(hashedPassword)) )
+                    {
 
-                    adminPage.Show();
-                    this.Hide();
+                        AdminPage adminPage = Program.ServiceProvider.GetRequiredService<AdminPage>();
+
+                        adminPage.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        AdminAnasayfa adminAnasayfa = Program.ServiceProvider.GetRequiredService<AdminAnasayfa>();
+                        adminAnasayfa.Show();
+                        this.Hide();
+                    }
+
                 }
                 else
                 {

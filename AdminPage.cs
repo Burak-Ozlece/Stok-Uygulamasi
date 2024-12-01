@@ -1,4 +1,5 @@
-﻿using Stok_Uygulaması.Model;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Stok_Uygulaması.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace Stok_Uygulaması
         {
             _userGeneric = userGeneric;
             _productGeneric = productGeneric;
-            
+
 
             InitializeComponent();
             _unitOfWork = unitOfWork;
@@ -37,6 +38,7 @@ namespace Stok_Uygulaması
             // eski şifre ve yeni şifreler boş olmama durumu
             if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(şifre1) || string.IsNullOrEmpty(şifre2))
             {
+                pictureBox1.Visible = true;
                 label5.Text = "Eksik veya hatalı bilgi girdiniz";
                 return;
             }
@@ -45,12 +47,13 @@ namespace Stok_Uygulaması
                 label5.Text = "";
             }
 
-            
+
 
             //yeni şifre uyuşması
 
-            if (şifre1 != şifre2 )
+            if (şifre1 != şifre2)
             {
+                pictureBox1.Visible = true;
                 label5.Text = "Yeni parolalar eşleşmiyor";
                 return;
             }
@@ -67,36 +70,46 @@ namespace Stok_Uygulaması
 
             if (!_userGeneric.Any(x => x.PasswordHash == hashed))
             {
+                pictureBox1.Visible = true;
                 label5.Text = "eski şifreniz hatalıdır";
                 return;
             }
             else
             {
                 label5.Text = "";
-                
+
             }
+
+            //şifre formata uyuyor mu kontrolü
 
             if (!ValidatePassword(şifre2))
             {
+                pictureBox1.Visible = true;
                 label5.Text = "Parolanız Formatı Uygun Değildir";
                 return;
             }
             else { label5.Text = ""; }
 
+            //Güncelleme İşlemi
 
             var salt = LoginPage.GenerateSalt();
             var hash = LoginPage.HashPasswordWithSalt(şifre2, salt);
-            var admin = _userGeneric.Where(x=> x.UserName == textBox1.Text).First();
+            var admin = _userGeneric.Where(x => x.UserName == textBox1.Text).First();
             admin.PasswordHash = hash;
             admin.Salt = salt;
             admin.UpdatedDate = DateTime.UtcNow;
             _userGeneric.Update(admin);
             _unitOfWork.Commit();
-            
-           
 
-            
-            
+            //AdminAnasayfaya gönderme
+
+            AdminAnasayfa adminAnasayfa = Program.ServiceProvider.GetRequiredService<AdminAnasayfa>();
+            adminAnasayfa.Show();
+            this.Hide();
+
+
+
+
 
 
 
@@ -111,6 +124,18 @@ namespace Stok_Uygulaması
             // Şifre koşullarını kontrol eden regex:
             var regex = new Regex(@"^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^\w\s]).{6,}$");
             return regex.IsMatch(password);
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.White;
+            button1.ForeColor = Color.Black;
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Black;
+            button1.ForeColor = Color.White;
         }
     }
 }
