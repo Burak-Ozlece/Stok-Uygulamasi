@@ -19,6 +19,13 @@ namespace Stok_Uygulaması
             _dbSet = context.Set<Tentity>();
         }
 
+        public void SqlExecute()
+        {
+            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var backupFileName = "stoc.bak";
+            var backupFilePath = Path.Combine(documentsPath, backupFileName);
+            var sqlCommand = $"BACKUP DATABASE [{_context.Database.GetDbConnection().Database}] TO DISK = '{backupFilePath}'";
+        }
 
         public async Task AddAsync(Tentity entity)
         {
