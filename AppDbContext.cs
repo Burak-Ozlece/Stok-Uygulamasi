@@ -16,7 +16,10 @@ namespace Stok_Uygulaması
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Users> Users { get; set; }
+        public DbSet<ProductMovement> ProductMovements { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductStockStatus> ProductStockStatus { get; set; }
+        public DbSet<Member> Members { get; set; }
 
         // Diğer DbSet tanımlamalarını buraya ekleyebilirsiniz.
         protected override void OnModelCreating(ModelBuilder modelBuilder) // EF Core'da ModelBuilder kullanılır

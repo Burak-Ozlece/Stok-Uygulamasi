@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace Stok_Uygulaması.Model
 {
-    public class Product
+    public class Member
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public string Barkod { get; set; }
+        public string FullName { get; set; }
         public DateTime CreatedDate { get; set; }
         public StatusEnum Status { get; set; }
     }

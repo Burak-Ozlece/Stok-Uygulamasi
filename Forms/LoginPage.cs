@@ -13,13 +13,10 @@ namespace Stok_Uygulaması
     public partial class LoginPage : Form
     {
         readonly GenericRepository<Users> _userGeneric;
-        readonly GenericRepository<Product> _productGeneric;
         public User User { get; set; }
-        public LoginPage(GenericRepository<Users> userGeneric, GenericRepository<Product> productGeneric)
+        public LoginPage(GenericRepository<Users> userGeneric)
         {
             _userGeneric = userGeneric;
-            _productGeneric = productGeneric;
-
             InitializeComponent();
         }
 
