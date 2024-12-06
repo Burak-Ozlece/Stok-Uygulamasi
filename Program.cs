@@ -34,7 +34,8 @@ namespace Stok_Uygulaması
             // Giriş sayfasını başlat
             var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
             var mainPage = ServiceProvider.GetRequiredService<MainPage>();
-            Application.Run(mainPage);
+            var depopage = ServiceProvider.GetRequiredService<Depo>();
+            Application.Run(depopage);
         }
 
         private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -58,6 +59,10 @@ namespace Stok_Uygulaması
             services.AddTransient<MainPage>();
             services.AddTransient<AdminAnasayfa>();
             services.AddTransient<UserUpdatePassword>();
+            services.AddTransient<UrunIslemleri>(); 
+            services.AddTransient<ReportPage>();
+            services.AddTransient<Depo>();
+
         }
     }
 }

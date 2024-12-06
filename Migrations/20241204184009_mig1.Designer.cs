@@ -12,8 +12,8 @@ using Stok_Uygulaması;
 namespace Stok_Uygulaması.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241202204117_Init")]
-    partial class Init
+    [Migration("20241204184009_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -177,7 +177,7 @@ namespace Stok_Uygulaması.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 12, 2, 20, 41, 17, 547, DateTimeKind.Utc).AddTicks(2353),
+                            CreatedDate = new DateTime(2024, 12, 4, 18, 40, 8, 812, DateTimeKind.Utc).AddTicks(4442),
                             PasswordHash = "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=",
                             Salt = "I2Fmswvjufks8K5YK0+/5g==",
                             Status = 1,

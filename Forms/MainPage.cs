@@ -16,9 +16,9 @@ namespace Stok_Uygulaması
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            ReportPage reportPage = Program.ServiceProvider.GetRequiredService<ReportPage>();
+            Depo depo = Program.ServiceProvider.GetRequiredService<Depo>();
 
-            reportPage.Show();
+            depo.Show();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)

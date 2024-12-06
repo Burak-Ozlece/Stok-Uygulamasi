@@ -16,4 +16,6 @@ namespace Stok_Uygulaması.Model
         public int Amount { get; set; }
         public StatusEnum Status { get; set; }
     }
+
+    
 }

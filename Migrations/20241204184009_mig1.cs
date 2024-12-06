@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Stok_Uygulaması.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -127,7 +127,7 @@ namespace Stok_Uygulaması.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedDate", "PasswordHash", "Salt", "Status", "UpdatedDate", "UserName" },
-                values: new object[] { 1, new DateTime(2024, 12, 2, 20, 41, 17, 547, DateTimeKind.Utc).AddTicks(2353), "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=", "I2Fmswvjufks8K5YK0+/5g==", 1, null, "admin" });
+                values: new object[] { 1, new DateTime(2024, 12, 4, 18, 40, 8, 812, DateTimeKind.Utc).AddTicks(4442), "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=", "I2Fmswvjufks8K5YK0+/5g==", 1, null, "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductMovements_ProductId",

@@ -174,7 +174,7 @@ namespace Stok_Uygulaması.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 12, 2, 20, 41, 17, 547, DateTimeKind.Utc).AddTicks(2353),
+                            CreatedDate = new DateTime(2024, 12, 4, 18, 40, 8, 812, DateTimeKind.Utc).AddTicks(4442),
                             PasswordHash = "3Hy8zbqdUwaHBYNw5Pk8h+PP42YarBP1N3mBoXBbgrc=",
                             Salt = "I2Fmswvjufks8K5YK0+/5g==",
                             Status = 1,

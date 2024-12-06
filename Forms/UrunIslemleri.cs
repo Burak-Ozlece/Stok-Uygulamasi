@@ -72,13 +72,13 @@ namespace Stok_Uygulaması.Forms
                 MessageBox.Show("Ürün bulunuyor", null, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            Product product = new()
-            {
-                Name = urunAdi,
-                Image = 
-            }
+            //Product product = new()
+            //{
+            //    Name = urunAdi,
+            //    Image = 
+            //}
 
-            _productGeneric.AddAsync()
+            //_productGeneric.AddAsync()
         }
     }
 }
