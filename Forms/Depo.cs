@@ -24,19 +24,36 @@ namespace Stok_Uygulaması
             InitializeComponent();
             _ProductStockStatus = productStockStatus;
             _userGeneric = userGeneric;
-            
+
         }
 
         private void Depo_Load(object sender, EventArgs e)
         {
             panel1.Dock = DockStyle.Top;
-            
+
+
+
 
 
             ProductStockStatus stok = new ProductStockStatus();
 
             var ürünlisteleme = _ProductStockStatus.GetAll();
             dataGridView1.DataSource = ürünlisteleme;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
