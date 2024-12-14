@@ -30,209 +30,246 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Depo));
-            textBox1 = new TextBox();
-            button1 = new Button();
-            dataGridView1 = new DataGridView();
             appDbContextBindingSource = new BindingSource(components);
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            panelMenu = new Panel();
+            button3 = new Button();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            panelLogo = new Panel();
+            pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            label1 = new Label();
             panel2 = new Panel();
-            button8 = new Button();
-            button11 = new Button();
-            button7 = new Button();
-            button10 = new Button();
-            button9 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)appDbContextBindingSource).BeginInit();
+            panelMenu.SuspendLayout();
+            panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(509, 181);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Barkod No İle Arama";
-            textBox1.Size = new Size(211, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(975, 281);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Ürün Ara";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 214);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1283, 268);
-            dataGridView1.TabIndex = 2;
             // 
             // appDbContextBindingSource
             // 
             appDbContextBindingSource.DataSource = typeof(AppDbContext);
             // 
-            // textBox2
+            // panelMenu
             // 
-            textBox2.Location = new Point(726, 181);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Stok Kodu İle Arama";
-            textBox2.Size = new Size(180, 27);
-            textBox2.TabIndex = 3;
+            panelMenu.BackColor = Color.FromArgb(34, 45, 63);
+            panelMenu.Controls.Add(button3);
+            panelMenu.Controls.Add(button6);
+            panelMenu.Controls.Add(button5);
+            panelMenu.Controls.Add(button4);
+            panelMenu.Controls.Add(button2);
+            panelMenu.Controls.Add(button1);
+            panelMenu.Controls.Add(panelLogo);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.Location = new Point(0, 0);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(220, 727);
+            panelMenu.TabIndex = 11;
             // 
-            // textBox3
+            // button3
             // 
-            textBox3.Location = new Point(912, 181);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Ürün Adı İle arama";
-            textBox3.Size = new Size(457, 27);
-            textBox3.TabIndex = 4;
+            button3.Cursor = Cursors.Hand;
+            button3.Dock = DockStyle.Top;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button3.ForeColor = Color.Gainsboro;
+            button3.Image = Properties.Resources.icons8_logout_50;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(0, 516);
+            button3.Name = "button3";
+            button3.Padding = new Padding(7, 0, 0, 0);
+            button3.Size = new Size(220, 84);
+            button3.TabIndex = 13;
+            button3.Text = "Çıkış";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button6
+            // 
+            button6.Cursor = Cursors.Hand;
+            button6.Dock = DockStyle.Top;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button6.ForeColor = Color.Gainsboro;
+            button6.Image = Properties.Resources.icons8_setting_50;
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(0, 432);
+            button6.Name = "button6";
+            button6.Padding = new Padding(7, 0, 0, 0);
+            button6.Size = new Size(220, 84);
+            button6.TabIndex = 12;
+            button6.Text = "Ayarlar";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Cursor = Cursors.Hand;
+            button5.Dock = DockStyle.Top;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button5.ForeColor = Color.Gainsboro;
+            button5.Image = Properties.Resources.icons8_users_50;
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(0, 348);
+            button5.Name = "button5";
+            button5.Padding = new Padding(7, 0, 0, 0);
+            button5.Size = new Size(220, 84);
+            button5.TabIndex = 11;
+            button5.Text = "Üye";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Cursor = Cursors.Hand;
+            button4.Dock = DockStyle.Top;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button4.ForeColor = Color.Gainsboro;
+            button4.Image = Properties.Resources.icons8_backup_50;
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(0, 264);
+            button4.Name = "button4";
+            button4.Padding = new Padding(7, 0, 0, 0);
+            button4.Size = new Size(220, 84);
+            button4.TabIndex = 10;
+            button4.Text = "Yedekleme";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Cursor = Cursors.Hand;
+            button2.Dock = DockStyle.Top;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button2.ForeColor = Color.Gainsboro;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 180);
+            button2.Name = "button2";
+            button2.Padding = new Padding(7, 0, 0, 0);
+            button2.Size = new Size(220, 84);
+            button2.TabIndex = 8;
+            button2.Text = "Raporlama";
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button1.ForeColor = Color.Gainsboro;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 96);
+            button1.Name = "button1";
+            button1.Padding = new Padding(7, 0, 0, 0);
+            button1.Size = new Size(220, 84);
+            button1.TabIndex = 7;
+            button1.Text = "Depo";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // panelLogo
+            // 
+            panelLogo.BackColor = Color.FromArgb(79, 104, 147);
+            panelLogo.Controls.Add(pictureBox1);
+            panelLogo.Dock = DockStyle.Top;
+            panelLogo.Location = new Point(0, 0);
+            panelLogo.Name = "panelLogo";
+            panelLogo.Size = new Size(220, 96);
+            panelLogo.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(220, 96);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(panel2);
+            panel1.BackColor = Color.FromArgb(34, 45, 63);
+            panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(220, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1751, 144);
-            panel1.TabIndex = 5;
+            panel1.Size = new Size(1312, 96);
+            panel1.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.Gainsboro;
+            label1.Location = new Point(579, 14);
+            label1.Name = "label1";
+            label1.Size = new Size(173, 65);
+            label1.TabIndex = 0;
+            label1.Text = "MENÜ";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
-            panel2.Controls.Add(button8);
-            panel2.Controls.Add(button11);
-            panel2.Controls.Add(button7);
-            panel2.Controls.Add(button10);
-            panel2.Controls.Add(button9);
-            panel2.Location = new Point(330, 3);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(220, 96);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1039, 138);
-            panel2.TabIndex = 6;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.White;
-            button8.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
-            button8.ForeColor = Color.IndianRed;
-            button8.Image = (Image)resources.GetObject("button8.Image");
-            button8.ImageAlign = ContentAlignment.TopCenter;
-            button8.Location = new Point(828, 6);
-            button8.Name = "button8";
-            button8.Size = new Size(177, 129);
-            button8.TabIndex = 7;
-            button8.Text = "Üyeler";
-            button8.TextAlign = ContentAlignment.BottomCenter;
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            button11.BackColor = Color.White;
-            button11.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
-            button11.ForeColor = Color.IndianRed;
-            button11.Image = (Image)resources.GetObject("button11.Image");
-            button11.ImageAlign = ContentAlignment.TopCenter;
-            button11.Location = new Point(439, 6);
-            button11.Name = "button11";
-            button11.Size = new Size(177, 129);
-            button11.TabIndex = 10;
-            button11.Text = "Hareket İncele";
-            button11.TextAlign = ContentAlignment.BottomCenter;
-            button11.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.White;
-            button7.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
-            button7.ForeColor = Color.IndianRed;
-            button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.ImageAlign = ContentAlignment.TopCenter;
-            button7.Location = new Point(52, 6);
-            button7.Name = "button7";
-            button7.Size = new Size(177, 129);
-            button7.TabIndex = 6;
-            button7.Text = "Hareket İncele";
-            button7.TextAlign = ContentAlignment.BottomCenter;
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
-            // 
-            // button10
-            // 
-            button10.BackColor = Color.White;
-            button10.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
-            button10.ForeColor = Color.IndianRed;
-            button10.Image = (Image)resources.GetObject("button10.Image");
-            button10.ImageAlign = ContentAlignment.TopCenter;
-            button10.Location = new Point(634, 6);
-            button10.Name = "button10";
-            button10.Size = new Size(177, 129);
-            button10.TabIndex = 9;
-            button10.Text = "Ürün Arama";
-            button10.TextAlign = ContentAlignment.BottomCenter;
-            button10.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.White;
-            button9.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
-            button9.ForeColor = Color.IndianRed;
-            button9.Image = (Image)resources.GetObject("button9.Image");
-            button9.ImageAlign = ContentAlignment.TopCenter;
-            button9.Location = new Point(244, 6);
-            button9.Name = "button9";
-            button9.Size = new Size(177, 129);
-            button9.TabIndex = 8;
-            button9.Text = "Ürün İşlemleri";
-            button9.TextAlign = ContentAlignment.BottomCenter;
-            button9.UseVisualStyleBackColor = false;
+            panel2.Size = new Size(1312, 631);
+            panel2.TabIndex = 13;
             // 
             // Depo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1751, 784);
+            ClientSize = new Size(1532, 727);
+            Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(dataGridView1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(panelMenu);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "Depo";
             Text = "Depo";
-            WindowState = FormWindowState.Maximized;
             Load += Depo_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)appDbContextBindingSource).EndInit();
+            panelMenu.ResumeLayout(false);
+            panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
-        private Button button1;
-        private DataGridView dataGridView1;
         private BindingSource appDbContextBindingSource;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private Panel panelMenu;
+        private Panel panelLogo;
+        private Button button1;
+        private Button button5;
+        private Button button4;
+        private Button button2;
+        private Button button6;
+        private PictureBox pictureBox1;
+        private Button button3;
         private Panel panel1;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
+        private Label label1;
         private Panel panel2;
     }
 }
