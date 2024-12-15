@@ -31,16 +31,6 @@ namespace Stok_Uygulaması
         private void Depo_Load(object sender, EventArgs e)
         {
 
-            //if (this.WindowState != FormWindowState.Maximized)
-            //{
-            //    this.FormBorderStyle = FormBorderStyle.FixedDialog; // Sabit boyut
-            //    //this.Size = new Size(1024, 768); // Sabit boyut belirlenir
-            //    this.Size = new Size(1312, 631); // Sabit boyut belirlenir
-            //}
-            //else
-            //{
-            //    this.FormBorderStyle = FormBorderStyle.None; // Tam ekran modunda kenar çubuğunu kaldırır
-            //}
 
 
 
@@ -58,7 +48,7 @@ namespace Stok_Uygulaması
             // Alt formu oluştur
             Depo childForm = new()
             {
-                TopLevel = false, 
+                TopLevel = false,
                 FormBorderStyle = FormBorderStyle.None,
                 Dock = DockStyle.Fill
             };
@@ -73,13 +63,124 @@ namespace Stok_Uygulaması
         // Çıkış butonuna click olayı yapıldığında çalışacak fonksiyon
         private void cikisbutton_Click(object sender, EventArgs e)
         {
+            cikisbutton.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+
             var result = MessageBox.Show($"Uygulamayı kapatmak istediğinize eminmisiniz", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             // Çıkışa onay verirse uygulamayı kapatıyoruz
             if (result == DialogResult.OK)
                 Application.Exit();
+
+        }
+
+        private void depobuton_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Depo Butonu Renk Düzenleme
+            depobuton.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+
+        }
+
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            //ürünler Butonu Renk Düzenleme
+
+            button2.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+        }
+
+        private void button4_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Yedekleme Butonu renk düzenleme
+            button4.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+
+        }
+
+        private void button5_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Üyeler butonu renk düzeni
+            button5.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+
         }
 
 
+
+        private void button6_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Ayarlar butonu renk düzeni 
+            button6.BackColor = Color.FromArgb(62, 50, 50);
+
+            button1.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+
+        }
+
+
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            //raporlama butonu renk düzeni
+            button1.BackColor = Color.FromArgb(62, 50, 50);
+
+            button6.BackColor = Color.FromArgb(80, 60, 60);
+            button2.BackColor = Color.FromArgb(80, 60, 60);
+            button4.BackColor = Color.FromArgb(80, 60, 60);
+            button5.BackColor = Color.FromArgb(80, 60, 60);
+            depobuton.BackColor = Color.FromArgb(80, 60, 60);
+            cikisbutton.BackColor = Color.FromArgb(80, 60, 60);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Alt formu oluştur
+            Ürünler childForm = new()
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+
+            // Alt formu panel içine ekle
+            mainPanel.Controls.Clear(); // Önceki formları temizle
+            mainPanel.Controls.Add(childForm);
+            childForm.Show(); 
+        }
     }
 }
