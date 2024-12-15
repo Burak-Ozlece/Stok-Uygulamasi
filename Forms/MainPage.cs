@@ -1,117 +1,85 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Stok_Uygulaması.Forms;
-using System.Diagnostics;
+﻿using Stok_Uygulaması.Forms;
+using Stok_Uygulaması.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Stok_Uygulaması
 {
     public partial class MainPage : Form
     {
-        private readonly AppDbContext _context;
-        public MainPage(AppDbContext context)
+        readonly GenericRepository<ProductStockStatus> _ProductStockStatus;
+        readonly GenericRepository<Users> _userGeneric;
+
+        public MainPage(GenericRepository<ProductStockStatus> productStockStatus, GenericRepository<Users> userGeneric)
         {
+            //this.WindowState = FormWindowState.Maximized;  // Formu tam ekran yap
+            //this.TopMost = true;  // Uygulama her zaman ön planda
             InitializeComponent();
-            _context = context;
+            _ProductStockStatus = productStockStatus;
+            _userGeneric = userGeneric;
+
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Depo_Load(object sender, EventArgs e)
         {
-            Depo depo = Program.ServiceProvider.GetRequiredService<Depo>();
 
-            depo.Show();
+            //if (this.WindowState != FormWindowState.Maximized)
+            //{
+            //    this.FormBorderStyle = FormBorderStyle.FixedDialog; // Sabit boyut
+            //    //this.Size = new Size(1024, 768); // Sabit boyut belirlenir
+            //    this.Size = new Size(1312, 631); // Sabit boyut belirlenir
+            //}
+            //else
+            //{
+            //    this.FormBorderStyle = FormBorderStyle.None; // Tam ekran modunda kenar çubuğunu kaldırır
+            //}
+
+
+
+            ProductStockStatus stok = new ProductStockStatus();
+
+            var ürünlisteleme = _ProductStockStatus.GetAll();
+
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        // Depo butonuna click olayı yapıldığında çalışacak fonksiyon
+        private void depobuton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            label1.Text = "DEPO";
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            LoginPage loginPage = Program.ServiceProvider.GetRequiredService<LoginPage>();
-
-            loginPage.Show();
-            this.Hide();
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            using (var context = _context)
+            // Alt formu oluştur
+            Depo childForm = new()
             {
-                // PostgreSQL bağlantı bilgilerini alın
-                var database = context.Database.GetDbConnection().Database;
-                var host = "localhost"; // Sunucu adı
-                var port = "5432";      // PostgreSQL varsayılan portu
-                var username = "postgres"; // Kullanıcı adı
-                var password = "Password1"; // Şifre
+                TopLevel = false, 
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
 
-                // Belgelerim klasörüne yedek dosyası kaydedilecek
-                var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                var backupFileName = "database_backup.backup";
-                var backupFilePath = Path.Combine(documentsPath, backupFileName);
+            // Alt formu panel içine ekle
+            mainPanel.Controls.Clear(); // Önceki formları temizle
+            mainPanel.Controls.Add(childForm);
+            childForm.Show();
 
-                var pgDumpPath = @"C:\Program Files\PostgreSQL\15\bin\pg_dump";
-                // pg_dump komutu oluşturuluyor
-                var arguments = $"-h {host} -p {port} -U {username} -F c -b -v -f \"{backupFilePath}\" {database}";
-
-                // PostgreSQL şifresini ortam değişkenine ayarla
-                Environment.SetEnvironmentVariable("PGPASSWORD", password);
-
-                try
-                {
-                    // pg_dump işlemini başlat
-                    var processStartInfo = new ProcessStartInfo
-                    {
-                        FileName = pgDumpPath, // pg_dump komutunu çalıştır
-                        Arguments = arguments,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
-
-                    using (var process = Process.Start(processStartInfo))
-                    {
-                        // Çıktı ve hata mesajlarını oku
-                        var output = process.StandardOutput.ReadToEnd();
-                        var error = process.StandardError.ReadToEnd();
-
-                        process.WaitForExit();
-
-                        if (process.ExitCode == 0)
-                        {
-                            MessageBox.Show($"Veri tabanı yedeği {backupFilePath} yoluna yedeklenmiştir", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Hata oluştu: {error}", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Hata oluştu: {ex.Message}", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        // Çıkış butonuna click olayı yapıldığında çalışacak fonksiyon
+        private void cikisbutton_Click(object sender, EventArgs e)
         {
-            ReportPage reportPage = Program.ServiceProvider.GetRequiredService<ReportPage>();
+            var result = MessageBox.Show($"Uygulamayı kapatmak istediğinize eminmisiniz", "Bilgilendirme", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            reportPage.Show();
+            // Çıkışa onay verirse uygulamayı kapatıyoruz
+            if (result == DialogResult.OK)
+                Application.Exit();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            UserUpdatePassword passwordChangePage = Program.ServiceProvider.GetRequiredService<UserUpdatePassword>();
-
-            passwordChangePage.Show();
-        }
     }
 }

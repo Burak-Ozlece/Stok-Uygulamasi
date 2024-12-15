@@ -33,8 +33,8 @@ namespace Stok_Uygulaması
 
             // Giriş sayfasını başlat
             var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
-            var mainPage = ServiceProvider.GetRequiredService<MainPage>();
-            var depopage = ServiceProvider.GetRequiredService<Depo>();
+            var mainPage = ServiceProvider.GetRequiredService<oldMainPage>();
+            var depopage = ServiceProvider.GetRequiredService<MainPage>();
             Application.Run(depopage);
         }
 
@@ -56,12 +56,12 @@ namespace Stok_Uygulaması
             // Formları bağımlılıklarıyla birlikte kaydet
             services.AddTransient<LoginPage>();
             services.AddTransient<AdminPage>();
-            services.AddTransient<MainPage>();
+            services.AddTransient<oldMainPage>();
             services.AddTransient<AdminAnasayfa>();
             services.AddTransient<UserUpdatePassword>();
             services.AddTransient<UrunIslemleri>(); 
             services.AddTransient<ReportPage>();
-            services.AddTransient<Depo>();
+            services.AddTransient<MainPage>();
 
         }
     }

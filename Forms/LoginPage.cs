@@ -136,7 +136,7 @@ namespace Stok_Uygulaması
                 }
                 else
                 {
-                    MainPage mainPage = Program.ServiceProvider.GetRequiredService<MainPage>();
+                    oldMainPage mainPage = Program.ServiceProvider.GetRequiredService<oldMainPage>();
 
                     mainPage.Show();
                     this.Hide();

@@ -1,4 +1,4 @@
-﻿namespace Stok_Uygulaması
+﻿namespace Stok_Uygulaması.Forms
 {
     partial class Depo
     {
@@ -28,248 +28,256 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Depo));
-            appDbContextBindingSource = new BindingSource(components);
-            panelMenu = new Panel();
-            button3 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            panelLogo = new Panel();
-            pictureBox1 = new PictureBox();
+            urunResmi = new PictureBox();
+            barkodTextBox = new TextBox();
+            barkodLabel = new Label();
+            sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
+            urunAraButon = new Button();
             panel1 = new Panel();
-            label1 = new Label();
+            teslimAlButon = new Button();
+            teslimEtButon = new Button();
+            label3 = new Label();
+            numericUpDown1 = new NumericUpDown();
             panel2 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)appDbContextBindingSource).BeginInit();
-            panelMenu.SuspendLayout();
-            panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label2 = new Label();
+            dataGridView2 = new DataGridView();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)urunResmi).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // appDbContextBindingSource
+            // urunResmi
             // 
-            appDbContextBindingSource.DataSource = typeof(AppDbContext);
+            urunResmi.Location = new Point(57, 4);
+            urunResmi.Margin = new Padding(3, 4, 3, 4);
+            urunResmi.Name = "urunResmi";
+            urunResmi.Size = new Size(267, 316);
+            urunResmi.TabIndex = 1;
+            urunResmi.TabStop = false;
             // 
-            // panelMenu
+            // barkodTextBox
             // 
-            panelMenu.BackColor = Color.FromArgb(34, 45, 63);
-            panelMenu.Controls.Add(button3);
-            panelMenu.Controls.Add(button6);
-            panelMenu.Controls.Add(button5);
-            panelMenu.Controls.Add(button4);
-            panelMenu.Controls.Add(button2);
-            panelMenu.Controls.Add(button1);
-            panelMenu.Controls.Add(panelLogo);
-            panelMenu.Dock = DockStyle.Left;
-            panelMenu.Location = new Point(0, 0);
-            panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 727);
-            panelMenu.TabIndex = 11;
+            barkodTextBox.Cursor = Cursors.IBeam;
+            barkodTextBox.Location = new Point(368, 49);
+            barkodTextBox.Margin = new Padding(3, 4, 3, 4);
+            barkodTextBox.MinimumSize = new Size(4, 10);
+            barkodTextBox.Name = "barkodTextBox";
+            barkodTextBox.PlaceholderText = "Ürün Adı veya Barkod Yazınız";
+            barkodTextBox.Size = new Size(196, 27);
+            barkodTextBox.TabIndex = 2;
             // 
-            // button3
+            // barkodLabel
             // 
-            button3.Cursor = Cursors.Hand;
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button3.ForeColor = Color.Gainsboro;
-            button3.Image = Properties.Resources.icons8_logout_50;
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(0, 516);
-            button3.Name = "button3";
-            button3.Padding = new Padding(7, 0, 0, 0);
-            button3.Size = new Size(220, 84);
-            button3.TabIndex = 13;
-            button3.Text = "Çıkış";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            barkodLabel.AutoSize = true;
+            barkodLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            barkodLabel.Location = new Point(363, 17);
+            barkodLabel.Name = "barkodLabel";
+            barkodLabel.Size = new Size(184, 28);
+            barkodLabel.TabIndex = 3;
+            barkodLabel.Text = "Ürün Adı / Barkod";
             // 
-            // button6
+            // sqliteCommand1
             // 
-            button6.Cursor = Cursors.Hand;
-            button6.Dock = DockStyle.Top;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button6.ForeColor = Color.Gainsboro;
-            button6.Image = Properties.Resources.icons8_setting_50;
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(0, 432);
-            button6.Name = "button6";
-            button6.Padding = new Padding(7, 0, 0, 0);
-            button6.Size = new Size(220, 84);
-            button6.TabIndex = 12;
-            button6.Text = "Ayarlar";
-            button6.UseVisualStyleBackColor = true;
+            sqliteCommand1.CommandTimeout = 30;
+            sqliteCommand1.Connection = null;
+            sqliteCommand1.Transaction = null;
+            sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
-            // button5
+            // urunAraButon
             // 
-            button5.Cursor = Cursors.Hand;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button5.ForeColor = Color.Gainsboro;
-            button5.Image = Properties.Resources.icons8_users_50;
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 348);
-            button5.Name = "button5";
-            button5.Padding = new Padding(7, 0, 0, 0);
-            button5.Size = new Size(220, 84);
-            button5.TabIndex = 11;
-            button5.Text = "Üye";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Cursor = Cursors.Hand;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button4.ForeColor = Color.Gainsboro;
-            button4.Image = Properties.Resources.icons8_backup_50;
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(0, 264);
-            button4.Name = "button4";
-            button4.Padding = new Padding(7, 0, 0, 0);
-            button4.Size = new Size(220, 84);
-            button4.TabIndex = 10;
-            button4.Text = "Yedekleme";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Cursor = Cursors.Hand;
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button2.ForeColor = Color.Gainsboro;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 180);
-            button2.Name = "button2";
-            button2.Padding = new Padding(7, 0, 0, 0);
-            button2.Size = new Size(220, 84);
-            button2.TabIndex = 8;
-            button2.Text = "Raporlama";
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            button1.ForeColor = Color.Gainsboro;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 96);
-            button1.Name = "button1";
-            button1.Padding = new Padding(7, 0, 0, 0);
-            button1.Size = new Size(220, 84);
-            button1.TabIndex = 7;
-            button1.Text = "Depo";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // panelLogo
-            // 
-            panelLogo.BackColor = Color.FromArgb(79, 104, 147);
-            panelLogo.Controls.Add(pictureBox1);
-            panelLogo.Dock = DockStyle.Top;
-            panelLogo.Location = new Point(0, 0);
-            panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(220, 96);
-            panelLogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(220, 96);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            urunAraButon.BackColor = Color.FromArgb(34, 45, 63);
+            urunAraButon.Cursor = Cursors.Hand;
+            urunAraButon.FlatStyle = FlatStyle.Flat;
+            urunAraButon.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            urunAraButon.ForeColor = Color.Gainsboro;
+            urunAraButon.Location = new Point(381, 107);
+            urunAraButon.Margin = new Padding(3, 4, 3, 4);
+            urunAraButon.Name = "urunAraButon";
+            urunAraButon.Size = new Size(173, 49);
+            urunAraButon.TabIndex = 4;
+            urunAraButon.Text = "Ürün Ara";
+            urunAraButon.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(34, 45, 63);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(220, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(teslimAlButon);
+            panel1.Controls.Add(teslimEtButon);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(numericUpDown1);
+            panel1.Controls.Add(urunResmi);
+            panel1.Controls.Add(barkodTextBox);
+            panel1.Controls.Add(urunAraButon);
+            panel1.Controls.Add(barkodLabel);
+            panel1.Location = new Point(14, 16);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1312, 96);
-            panel1.TabIndex = 12;
+            panel1.Size = new Size(1454, 349);
+            panel1.TabIndex = 6;
             // 
-            // label1
+            // teslimAlButon
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.Gainsboro;
-            label1.Location = new Point(579, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(173, 65);
-            label1.TabIndex = 0;
-            label1.Text = "MENÜ";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            teslimAlButon.BackColor = Color.FromArgb(34, 45, 63);
+            teslimAlButon.Cursor = Cursors.Hand;
+            teslimAlButon.FlatStyle = FlatStyle.Flat;
+            teslimAlButon.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            teslimAlButon.ForeColor = Color.Gainsboro;
+            teslimAlButon.Location = new Point(841, 133);
+            teslimAlButon.Margin = new Padding(3, 4, 3, 4);
+            teslimAlButon.Name = "teslimAlButon";
+            teslimAlButon.Size = new Size(173, 49);
+            teslimAlButon.TabIndex = 8;
+            teslimAlButon.Text = "Teslim Al";
+            teslimAlButon.UseVisualStyleBackColor = false;
+            // 
+            // teslimEtButon
+            // 
+            teslimEtButon.BackColor = Color.FromArgb(34, 45, 63);
+            teslimEtButon.Cursor = Cursors.Hand;
+            teslimEtButon.FlatStyle = FlatStyle.Flat;
+            teslimEtButon.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            teslimEtButon.ForeColor = Color.Gainsboro;
+            teslimEtButon.Location = new Point(841, 49);
+            teslimEtButon.Margin = new Padding(3, 4, 3, 4);
+            teslimEtButon.Name = "teslimEtButon";
+            teslimEtButon.Size = new Size(173, 49);
+            teslimEtButon.TabIndex = 7;
+            teslimEtButon.Text = "Teslim Et";
+            teslimEtButon.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label3.Location = new Point(618, 17);
+            label3.Name = "label3";
+            label3.Size = new Size(135, 28);
+            label3.TabIndex = 6;
+            label3.Text = "Miktar Sayısı";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(624, 49);
+            numericUpDown1.Margin = new Padding(3, 4, 3, 4);
+            numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(137, 27);
+            numericUpDown1.TabIndex = 5;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // panel2
             // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(220, 96);
+            panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(dataGridView2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(dataGridView1);
+            panel2.Location = new Point(14, 403);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1312, 631);
-            panel2.TabIndex = 13;
+            panel2.Size = new Size(1454, 323);
+            panel2.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Console", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label2.Location = new Point(808, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(298, 30);
+            label2.TabIndex = 3;
+            label2.Text = "Seçilen Ürünler";
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(808, 56);
+            dataGridView2.Margin = new Padding(3, 4, 3, 4);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(625, 243);
+            dataGridView2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Lucida Console", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label1.Location = new Point(16, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(317, 30);
+            label1.TabIndex = 1;
+            label1.Text = "Depodaki Ürünler";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(16, 56);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(625, 243);
+            dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(34, 45, 63);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            button1.ForeColor = Color.Gainsboro;
+            button1.Location = new Point(841, 210);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(173, 49);
+            button1.TabIndex = 9;
+            button1.Text = "Teslim Al";
+            button1.UseVisualStyleBackColor = false;
             // 
             // Depo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(1532, 727);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(1481, 789);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(panelMenu);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Depo";
-            Text = "Depo";
-            Load += Depo_Load;
-            ((System.ComponentModel.ISupportInitialize)appDbContextBindingSource).EndInit();
-            panelMenu.ResumeLayout(false);
-            panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = " ";
+            ((System.ComponentModel.ISupportInitialize)urunResmi).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private BindingSource appDbContextBindingSource;
-        private Panel panelMenu;
-        private Panel panelLogo;
-        private Button button1;
-        private Button button5;
-        private Button button4;
-        private Button button2;
-        private Button button6;
-        private PictureBox pictureBox1;
-        private Button button3;
+        private PictureBox urunResmi;
+        private TextBox barkodTextBox;
+        private Label barkodLabel;
+        private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
+        private Button urunAraButon;
         private Panel panel1;
-        private Label label1;
         private Panel panel2;
+        private Label label1;
+        private DataGridView dataGridView1;
+        private Label label2;
+        private DataGridView dataGridView2;
+        private Button teslimEtButon;
+        private Label label3;
+        private NumericUpDown numericUpDown1;
+        private Button teslimAlButon;
+        private Button button1;
     }
 }
