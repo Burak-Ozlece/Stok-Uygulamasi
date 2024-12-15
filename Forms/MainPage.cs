@@ -1,4 +1,5 @@
-﻿using Stok_Uygulaması.Forms;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Stok_Uygulaması.Forms;
 using Stok_Uygulaması.Model;
 using System;
 using System.Collections.Generic;
@@ -54,19 +55,17 @@ namespace Stok_Uygulaması
         private void depobuton_Click(object sender, EventArgs e)
         {
             label1.Text = "DEPO";
+            Depo childForm = Program.ServiceProvider.GetRequiredService<Depo>();
 
-            // Alt formu oluştur
-            Depo childForm = new()
-            {
-                TopLevel = false, 
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
+            // Form özelliklerini doğru bir şekilde ayarla
+            childForm.TopLevel = false; // Üst düzey form olmadığını belirt
+            childForm.FormBorderStyle = FormBorderStyle.None; // Kenarlık kaldır
+            childForm.Dock = DockStyle.Fill; // Paneli doldur
 
             // Alt formu panel içine ekle
             mainPanel.Controls.Clear(); // Önceki formları temizle
-            mainPanel.Controls.Add(childForm);
-            childForm.Show();
+            mainPanel.Controls.Add(childForm); // Formu panel içine ekle
+            childForm.Show(); // Formu göster
 
         }
 

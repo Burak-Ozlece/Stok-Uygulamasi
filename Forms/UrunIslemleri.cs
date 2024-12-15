@@ -80,5 +80,15 @@ namespace Stok_Uygulaması.Forms
 
             //_productGeneric.AddAsync()
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UrunIslemleri_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,5 +15,7 @@ namespace Stok_Uygulaması.Model
         public Member ReceivingMember { get; set; }
         public Member SubmittingMember { get; set; }
         public Users WarehouseManager { get; set; }
+        public DateTime ReceivingDate { get; set; }
+        public DateTime SubmittingDate { get; set; }
     }
 }

@@ -60,6 +60,7 @@ namespace Stok_Uygulaması
             services.AddTransient<AdminAnasayfa>();
             services.AddTransient<UserUpdatePassword>();
             services.AddTransient<UrunIslemleri>(); 
+            services.AddTransient<Depo>();
             services.AddTransient<ReportPage>();
             services.AddTransient<MainPage>();
 

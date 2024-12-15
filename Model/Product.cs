@@ -13,6 +13,7 @@ namespace Stok_Uygulaması.Model
         public string Name { get; set; }
         public string Image { get; set; }
         public string Barkod { get; set; }
+        public CategoryEnum Category { get; set; }
         public DateTime CreatedDate { get; set; }
         public StatusEnum Status { get; set; }
     }

@@ -46,16 +46,18 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(235, 61);
+            textBox1.Location = new Point(269, 81);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(134, 23);
+            textBox1.Size = new Size(153, 27);
             textBox1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(29, 22);
+            pictureBox1.Location = new Point(33, 29);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(136, 134);
+            pictureBox1.Size = new Size(155, 179);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -64,9 +66,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(235, 32);
+            label1.Location = new Point(269, 43);
             label1.Name = "label1";
-            label1.Size = new Size(72, 21);
+            label1.Size = new Size(90, 28);
             label1.TabIndex = 5;
             label1.Text = "Ürün Adı";
             label1.Click += label1_Click;
@@ -75,25 +77,27 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(434, 32);
+            label3.Location = new Point(496, 43);
             label3.Name = "label3";
-            label3.Size = new Size(59, 21);
+            label3.Size = new Size(74, 28);
             label3.TabIndex = 9;
             label3.Text = "Barkod";
             label3.Click += label3_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(434, 61);
+            textBox2.Location = new Point(496, 81);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(130, 23);
+            textBox2.Size = new Size(148, 27);
             textBox2.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(427, 144);
+            button1.Location = new Point(488, 192);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(105, 34);
+            button1.Size = new Size(120, 45);
             button1.TabIndex = 10;
             button1.Text = "Ara";
             button1.UseVisualStyleBackColor = true;
@@ -101,18 +105,20 @@
             // 
             // button2
             // 
-            button2.Location = new Point(538, 144);
+            button2.Location = new Point(615, 192);
+            button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(105, 34);
+            button2.Size = new Size(120, 45);
             button2.TabIndex = 11;
             button2.Text = "Güncelle";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(649, 144);
+            button3.Location = new Point(742, 192);
+            button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
-            button3.Size = new Size(105, 34);
+            button3.Size = new Size(120, 45);
             button3.TabIndex = 12;
             button3.Text = "Sil";
             button3.UseVisualStyleBackColor = true;
@@ -120,16 +126,20 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(29, 217);
+            dataGridView1.Location = new Point(33, 289);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(721, 192);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(824, 256);
             dataGridView1.TabIndex = 13;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button4
             // 
-            button4.Location = new Point(316, 144);
+            button4.Location = new Point(361, 192);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(105, 34);
+            button4.Size = new Size(120, 45);
             button4.TabIndex = 14;
             button4.Text = "Ürün Ekle";
             button4.UseVisualStyleBackColor = true;
@@ -142,18 +152,19 @@
             // 
             // button5
             // 
-            button5.Location = new Point(205, 144);
+            button5.Location = new Point(234, 192);
+            button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(105, 34);
+            button5.Size = new Size(120, 45);
             button5.TabIndex = 15;
             button5.Text = "Ürün Ekle";
             button5.UseVisualStyleBackColor = true;
             // 
             // UrunIslemleri
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(dataGridView1);
@@ -165,8 +176,10 @@
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(textBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UrunIslemleri";
             Text = "UrunIslemleri";
+            Load += UrunIslemleri_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

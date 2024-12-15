@@ -166,6 +166,7 @@
             // 
             // depobuton
             // 
+            depobuton.BackColor = Color.FromArgb(34, 45, 63);
             depobuton.Cursor = Cursors.Hand;
             depobuton.Dock = DockStyle.Top;
             depobuton.FlatAppearance.BorderSize = 0;
@@ -181,7 +182,7 @@
             depobuton.Size = new Size(251, 112);
             depobuton.TabIndex = 7;
             depobuton.Text = "Depo";
-            depobuton.UseVisualStyleBackColor = true;
+            depobuton.UseVisualStyleBackColor = false;
             depobuton.Click += depobuton_Click;
             // 
             // panelLogo
@@ -249,6 +250,7 @@
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "MainPage";
             Text = "Depo";
             Load += Depo_Load;
